@@ -21,7 +21,7 @@ function unknown_status() {
     exit 0
 }
 
-code=$(curl -Ik --write-out %{http_code} --silent --no-keepalive --output /dev/null $URL)
+code=$(curl -m 8 -Ik --write-out %{http_code} --silent --no-keepalive --output /dev/null $URL)
 
 case $code in
      000) echo "${code} Not responding" ;;
